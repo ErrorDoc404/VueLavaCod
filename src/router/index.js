@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Dashboard from "../views/Dashboard.vue";
+import Home from "../views/Home.vue";
+import Commands from "../views/Commands.vue";
 import Tables from "../views/Tables.vue";
 import Billing from "../views/Billing.vue";
 import VirtualReality from "../views/VirtualReality.vue";
@@ -12,7 +14,12 @@ const routes = [
   {
     path: "/",
     name: "/",
-    redirect: "/dashboard-default",
+    component: Home,
+  },
+  {
+    path: '/commands',
+    name: 'Commands',
+    component: Commands,
   },
   {
     path: "/dashboard-default",
