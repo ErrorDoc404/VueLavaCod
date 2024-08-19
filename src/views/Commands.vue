@@ -13,7 +13,7 @@ onBeforeMount(async () => {
   body.classList.remove("bg-gray-100");
 
   try {
-    const response = await fetch('http://152.67.176.135:4040/api/commands'); // Replace with your API endpoint
+    const response = await fetch('https://echobyteapi.kartadharta.xyz/api/commands'); // Replace with your API endpoint
     store.state.commands = await response.json();
   } catch (error) {
     console.error(error);

@@ -18,7 +18,7 @@ const routes = [
   },
   {
     path: '/commands',
-    name: 'Commands',
+    name: '/commands',
     component: Commands,
   },
   {
