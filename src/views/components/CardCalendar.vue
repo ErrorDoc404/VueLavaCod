@@ -2,25 +2,25 @@
   <div class="overflow-hidden card move-on-hover">
     <div class="card-body">
       <div class="d-flex">
-        <h6 class="mb-0 me-3">08:00</h6>
+        <h6 class="mb-0 me-3">1</h6>
         <h6 class="mb-0">
-          Synk up with Mark
+          Song 1 <br />
           <small class="text-secondary font-weight-normal">Hangouts</small>
         </h6>
       </div>
       <hr class="horizontal dark" />
       <div class="d-flex">
-        <h6 class="mb-0 me-3">09:30</h6>
+        <h6 class="mb-0 me-3">2</h6>
         <h6 class="mb-0">
-          Gym <br />
+          Song 2 <br />
           <small class="text-secondary font-weight-normal">World Class</small>
         </h6>
       </div>
       <hr class="horizontal dark" />
       <div class="d-flex">
-        <h6 class="mb-0 me-3">11:00</h6>
+        <h6 class="mb-0 me-3">3</h6>
         <h6 class="mb-0">
-          Design Review<br />
+          Song 3 <br />
           <small class="text-secondary font-weight-normal">Zoom</small>
         </h6>
       </div>

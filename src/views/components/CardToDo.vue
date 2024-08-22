@@ -2,14 +2,14 @@
   <div class="card bg-gradient-dark move-on-hover">
     <div class="card-body">
       <div class="d-flex">
-        <h5 class="mb-0 text-white">To Do</h5>
+        <h5 class="mb-0 text-white">In Queue</h5>
         <div class="ms-auto">
           <h1 class="mb-0 text-white text-end mt-n2">7</h1>
-          <p class="mb-0 text-sm text-white">items</p>
+          <p class="mb-0 text-sm text-white">songs</p>
         </div>
       </div>
-      <p class="mb-0 text-white">Shopping</p>
-      <p class="mb-0 text-white">Meeting</p>
+      <p class="mb-0 text-white">Current Song</p>
+      <p class="mb-0 text-white">Requester</p>
     </div>
     <a
       href="javascript:;"

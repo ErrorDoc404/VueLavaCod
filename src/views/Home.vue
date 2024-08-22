@@ -1,7 +1,8 @@
 <script setup>
-import { onBeforeUnmount, onBeforeMount } from "vue";
+import { onBeforeUnmount, onBeforeMount, inject } from "vue";
 import { useStore } from "vuex";
 import Navbar from "@/examples/PageLayout/Navbar.vue";
+import ArgonButton from "@/components/ArgonButton.vue";
 const body = document.getElementsByTagName("body")[0];
 
 const store = useStore();
@@ -11,6 +12,13 @@ onBeforeMount(async () => {
   store.state.showSidenav = false;
   store.state.showFooter = false;
   body.classList.remove("bg-gray-100");
+
+  const socket = inject('socket');
+  socket.emit('index');
+  socket.on('index', (data) => {
+    store.state.stats.songs = data.playMusic;
+    store.state.stats.commands = data.commands;
+  })
 
   try {
     const response = await fetch('https://echobyteapi.kartadharta.xyz/api/stats'); // Replace with your API endpoint
@@ -26,6 +34,20 @@ onBeforeUnmount(() => {
   store.state.showFooter = true;
   body.classList.add("bg-gray-100");
 });
+
+function openOptionWindow() {
+  const screenWidth = screen.width;
+  const screenHeight = screen.height;
+  const windowWidth = 600;
+  const windowHeight = 400;
+  const left = (screenWidth - windowWidth) / 2;
+  const top = (screenHeight - windowHeight) / 2;
+
+  const windowFeatures = `width=${windowWidth},height=${windowHeight},menubar=no,toolbar=no,location=no,status=no,left=${left},top=${top}`;
+  const optionWindow = window.open('about:blank', '_blank', windowFeatures);
+  optionWindow.document.write('<html><body><h1>Option Window</h1><p>This is the option window content.</p></body></html>');
+  optionWindow.document.close();
+}
 </script>
 <template>
   <div class="container top-0 position-sticky z-index-sticky">
@@ -45,26 +67,62 @@ onBeforeUnmount(() => {
         <div class="container">
           <div class="row">
             <div class="mx-auto col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0">
-              <div class="card custom-card mb-4 mt-4">
-                <div class="card-header">
-                  <h4 class="font-weight-bolder">{{store.state.stats ? store.state.stats.songs : 0}}</h4>
-                  <p class="mb-0">Song Counter</p>
+              <div class="mb-3 card">
+                <div class="p-3 card-body">
+                  <div class="d-flex flex-row-reverse justify-content-between">
+                    <div class="text-center shadow icon icon-shape bg-gradient-success rounded-circle">
+                      <i class="text-lg opacity-10 ni ni-headphones" aria-hidden="true"></i>
+                    </div>
+                    <div class="">
+                      <div class="numbers">
+                        <p class="mb-0 text-sm text-uppercase font-weight-bold">Total Song</p>
+                        <h5 class="mb-0 font-weight-bolder undefined">{{ store.state.stats ? store.state.stats.songs : 0 }} <!--v-if--><span class="text-sm font-weight-bolder text-success"></span></h5>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div class="card custom-card mb-4 mt-4">
-                <div class="card-header">
-                  <h4 class="font-weight-bolder">{{store.state.stats ? store.state.stats.guild : 0}}</h4>
-                  <p class="mb-0">Total Server</p>
+              <div class="mb-3 card">
+                <div class="p-3 card-body">
+                  <div class="d-flex flex-row-reverse justify-content-between">
+                    <div class="text-center shadow icon icon-shape bg-gradient-warning rounded-circle">
+                      <i class="text-lg opacity-10 fa fa-server" aria-hidden="true"></i>
+                    </div>
+                    <div class="">
+                      <div class="numbers">
+                        <p class="mb-0 text-sm text-uppercase font-weight-bold">Total server</p>
+                        <h5 class="mb-0 font-weight-bolder undefined">{{store.state.stats ? store.state.stats.guild : 0}} <!--v-if--><span class="text-sm font-weight-bolder text-success"></span></h5>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div class="card custom-card mb-4 mt-4">
-                <div class="card-header">
-                  <h4 class="font-weight-bolder">{{store.state.stats ? store.state.stats.commands : 0}}</h4>
-                  <p class="mb-0">Total Commands</p>
+              <div class="mb-3 card">
+                <div class="p-3 card-body">
+                  <div class="d-flex flex-row-reverse justify-content-between">
+                    <div class="text-center shadow icon icon-shape bg-gradient-primary rounded-circle">
+                      <i class="text-lg opacity-10 fa fa-terminal" aria-hidden="true"></i>
+                    </div>
+                    <div class="">
+                      <div class="numbers">
+                        <p class="mb-0 text-sm text-uppercase font-weight-bold">Total Commands</p>
+                        <h5 class="mb-0 font-weight-bolder undefined">{{ store.state.stats ? store.state.stats.commands : 0 }} <!--v-if--><span class="text-sm font-weight-bolder text-success"></span></h5>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
+
+              <argon-button
+                class="mt-4"
+                variant="gradient"
+                color="success"
+                fullWidth
+                @click="openOptionWindow"
+                size="lg"
+              >Sign in via Discord</argon-button>
             </div>
             <div
               class="top-0 my-auto text-center col-6 d-lg-flex d-none h-100 pe-0 position-absolute end-0 justify-content-center flex-column"

@@ -1,9 +1,9 @@
 <script setup>
 import { onMounted, onBeforeMount, onBeforeUnmount } from "vue";
 import { useStore } from "vuex";
-import Sidenav from "@/examples/Sidenav";
-import AppFooter from "@/examples/Footer.vue";
-import Navbar from "@/examples/Navbars/Navbar.vue";
+// import Sidenav from "@/examples/Sidenav";
+// import AppFooter from "@/examples/Footer.vue";
+// import Navbar from "@/examples/Navbars/Navbar.vue";
 import CardCalendar from "./components/CardCalendar.vue";
 import CardEmail from "./components/CardEmail.vue";
 import CardToDo from "./components/CardToDo.vue";
@@ -15,8 +15,8 @@ const body = document.getElementsByTagName("body")[0];
 
 const store = useStore();
 
-const sidebarMinimize = () => store.commit("sidebarMinimize");
-const toggleConfigurator = () => store.commit("toggleConfigurator");
+// const sidebarMinimize = () => store.commit("sidebarMinimize");
+// const toggleConfigurator = () => store.commit("toggleConfigurator");
 
 onMounted(() => {
   setTooltip();
@@ -48,13 +48,13 @@ onBeforeUnmount(() => {
 </script>
 <template>
   <div class="mt-3">
-    <navbar
+    <!-- <navbar
       :minNav="sidebarMinimize"
       :toggle="toggleConfigurator"
       :class="`${store.state.isNavFixed ? store.state.navbarFixed_class : ''} ${
         store.state.isNavFixed ? 'bg-white' : 'bg-success'
       }`"
-    />
+    /> -->
   </div>
   <div
     class="mx-3 mt-4 border-radius-xl position-relative"
@@ -63,10 +63,10 @@ onBeforeUnmount(() => {
       backgroundSize: 'cover',
     }"
   >
-    <sidenav />
+    <!-- <sidenav /> -->
     <main class="mt-1 main-content border-radius-lg">
       <div
-        class="section min-vh-85 position-relative transform-scale-0 transform-scale-md-7"
+        class="section min-vh-85 position-relative transform-scale-0 transform-scale-md-12"
       >
         <div class="container-fluid">
           <div class="pt-10 row">
@@ -115,8 +115,8 @@ onBeforeUnmount(() => {
             <div class="col-lg-8 col-md-11">
               <div class="d-flex">
                 <div class="me-auto">
-                  <h1 class="mb-0 display-1 font-weight-bold mt-n4">12°C</h1>
-                  <h6 class="mb-0 text-uppercase ms-1">Cloudy</h6>
+                  <h1 class="mb-0 display-1 font-weight-bold mt-n4">70</h1>
+                  <h6 class="mb-0 text-uppercase ms-1">voice ping</h6>
                 </div>
                 <div class="ms-auto">
                   <img
@@ -145,5 +145,5 @@ onBeforeUnmount(() => {
       </div>
     </main>
   </div>
-  <app-footer class="py-3 bg-white border-radius-lg" />
+  <!-- <app-footer class="py-3 bg-white border-radius-lg" /> -->
 </template>

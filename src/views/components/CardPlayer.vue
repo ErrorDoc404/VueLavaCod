@@ -6,12 +6,12 @@
       <div
         class="full-background"
         style="
-          background-image: url(&quot;https://images.unsplash.com/photo-1518609878373-06d740f60d8b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2370&q=80&quot;);
+          background-image: url(&quot;https://i.imgur.com/bczSVrG.png?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2370&q=80&quot;);
         "
       ></div>
       <div class="card-body">
-        <h5 class="mb-0 text-white">Some Kind Of Blues</h5>
-        <p class="text-sm text-white">Deftones</p>
+        <h5 class="mb-0 text-white">Big Dawg</h5>
+        <p class="text-sm text-white">Hani</p>
         <div class="mt-5 d-flex">
           <button
             class="p-2 mb-0 btn btn-outline-white rounded-circle"

@@ -2,7 +2,7 @@
   <div class="mt-4 card move-on-hover">
     <div class="card-body">
       <div class="d-flex">
-        <p class="my-auto">Messages</p>
+        <p class="my-auto">In Voice</p>
         <div class="ms-auto">
           <div class="avatar-group">
             <a
